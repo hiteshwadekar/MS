@@ -1,0 +1,76 @@
+\documentclass[12pt]{report}
+
+\usepackage[style=alphabetic]{biblatex}
+\usepackage{bookmark}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage[papersize={8.5in,11in}, lmargin={1.5in}, rmargin={1in}, tmargin={1in}, bmargin={1in}]{geometry}
+\usepackage{graphicx}
+\usepackage{setspace}
+
+\addbibresource{references.bib} % biblatex
+\pagestyle{fancy} % fancyhdr
+\graphicspath{ {images/} } % graphicsx
+
+%% Customizing header
+\fancyhead{}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\thepage}
+
+%% Customizing footer
+\fancyfoot{}
+
+\pagenumbering{roman}
+
+\begin{document}
+
+\bookmarksetup{depth=-1}
+
+\input{titlepage}
+
+\input{signaturepage}
+
+\input{copyright}
+\clearpage
+
+\setcounter{page}{4}
+\pdfbookmark[0]{Abstract}{abstract}
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+\input{abstract}
+\pdfbookmark[0]{Acknowledgements}{ack}
+\chapter*{Acknowledgements}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\input{acknowledgements}
+
+\pdfbookmark[0]{Contents}{toc}
+\tableofcontents
+
+\pdfbookmark[0]{List of Tables}{lot}
+\listoftables
+
+\pdfbookmark[0]{List of Figures}{lof}
+\listoffigures
+
+\doublespace
+
+\clearpage
+\pagenumbering{arabic}
+
+\pdfbookmark[0]{Chapter 1}{chapter1}
+\chapter{Introduction}
+\input{chapters/chapter1}
+
+\pdfbookmark[0]{Chapter 2}{chapter2}
+\chapter{Background}
+\input{chapters/chapter2}
+
+\pdfbookmark[0]{Chapter 3}{chapter3}
+\chapter{Background}
+\input{chapters/chapter3}
+
+\printbibliography
+
+\end{document}
